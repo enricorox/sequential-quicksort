@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "utils.h"
 #include "quicksort.h"
+#include <mpi/mpi.h>
 
 #define DEBUG
 
@@ -24,15 +25,16 @@ int main(int argc, char **argv) {
     printf("Sequence:\n");
     print_seq(seq, size);
 #endif
-
+    double t_start = MPI_Wtime();
     // sort the sequence
-    seq = quick_sort(seq);
+    quick_sort(seq, 0, size - 1);
+    double t_stop = MPI_Wtime();
 
 #ifdef DEBUG
     printf("Ordered sequence:\n");
     print_seq(seq, size);
 #endif
-
+    printf("T(SequentialQuickSort) = %f\n", t_stop - t_start);
     free(seq);
     return EXIT_SUCCESS;
 }

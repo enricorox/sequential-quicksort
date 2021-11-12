@@ -9,4 +9,6 @@ void print_seq(int * seq, int size);
 
 int * ran_seq(int size);
 
+void swap(int *a, int *b);
+
 #endif //SEQUENTIALQUICKSORT_UTILS_H

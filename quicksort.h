@@ -5,6 +5,6 @@
 #ifndef SEQUENTIALQUICKSORT_QUICKSORT_H
 #define SEQUENTIALQUICKSORT_QUICKSORT_H
 
-int * quick_sort(int * seq);
+void quick_sort(int * seq, int start, int stop);
 
 #endif //SEQUENTIALQUICKSORT_QUICKSORT_H

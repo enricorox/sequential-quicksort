@@ -37,3 +37,9 @@ void print_seq(int * seq, int size){
     }
     printf("\n");
 }
+
+void swap(int *a, int *b){
+    int t = *a;
+    *a = *b;
+    *b = t;
+}
