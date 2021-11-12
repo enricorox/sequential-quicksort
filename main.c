@@ -1,11 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "utils.h"
+#include "quicksort.h"
 
-
-int * quick_sort(int * seq){
-    return seq;
-}
 
 int main(int argc, char **argv) {
     // parse arguments
