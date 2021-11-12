@@ -20,9 +20,9 @@ int main(int argc, char **argv) {
     if(argc == 3) seed = atoi(argv[2]);
     srand(seed);
 
-    printf("Going to generate a sequence of size %d\n", size);
+    printf("Going to generate a sequence of size %d and seed %d\n", size, seed);
     printf("Memory needed: %.3f MB\n", size*sizeof(int)/1000000.0);
-    printf("seed = %d\n", seed);
+    printf("Please wait...\n");
 
     // generate the sequence
     int * seq = ran_seq(size);
@@ -32,7 +32,8 @@ int main(int argc, char **argv) {
     print_seq(seq, size);
 #endif
 
-    MPI_Init(&argc, &argv);
+    printf("Sorting...\n");
+    MPI_Init(&argc, &argv); // needed for MPI_Wtime
     double t_start = MPI_Wtime();
     // sort the sequence
     quick_sort(seq, 0, size - 1);
