@@ -32,10 +32,12 @@ int main(int argc, char **argv) {
     print_seq(seq, size);
 #endif
 
+    MPI_Init(&argc, &argv);
     double t_start = MPI_Wtime();
     // sort the sequence
     quick_sort(seq, 0, size - 1);
     double t_stop = MPI_Wtime();
+    MPI_Finalize();
 
 #ifdef DEBUG
     printf("Ordered sequence:\n");
