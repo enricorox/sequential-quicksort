@@ -3,6 +3,7 @@
 #include "utils.h"
 #include "quicksort.h"
 
+#define DEBUG
 
 int main(int argc, char **argv) {
     // parse arguments
@@ -18,13 +19,19 @@ int main(int argc, char **argv) {
 
     // generate the sequence
     int * seq = ran_seq(size);
+
+#ifdef DEBUG
     printf("Sequence:\n");
     print_seq(seq, size);
+#endif
 
     // sort the sequence
     seq = quick_sort(seq);
+
+#ifdef DEBUG
     printf("Ordered sequence:\n");
     print_seq(seq, size);
+#endif
 
     free(seq);
     return EXIT_SUCCESS;
