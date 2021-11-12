@@ -13,5 +13,5 @@ spack load intel-parallel-studio@professional.2019.4
 
 ## sizes: 10^4 10^5 10^6 10^7 10^8 10^9
 ## seeds: 1 2 3 4 5
-srun ./SequentianQuickSort 10000 1
+mpirun -np 1 ./SequentialQuickSort 10000 1
 
