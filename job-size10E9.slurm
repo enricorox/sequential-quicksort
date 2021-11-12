@@ -2,14 +2,14 @@
 ## launch 3-job array:
 ## sbatch -a 1-3 sequential-quick-sort.slurm
 
-#SBATCH --job-name SequentialQuickSort
+#SBATCH --job-name SeqQuickSort
 #SBATCH --error err_%j.txt
 #SBATCH --output out_%j.txt
 #SBATCH --partition allgroups
 #SBATCH --ntasks 1
 #SBATCH -c 1
 #SBATCH --mem 10G
-#SBATCH --time 1:00:00
+#SBATCH --time 15:00
 
 spack load intel-parallel-studio@professional.2019.4 
 
