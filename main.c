@@ -22,7 +22,7 @@ int main(int argc, char **argv) {
 
     printf("Going to generate a sequence of size %d and seed %d\n", size, seed);
     printf("Memory needed: %.3f MB\n", size*sizeof(int)/1000000.0);
-    printf("Please wait...\n");
+    printf("Please wait while generating...\n");
 
     // generate the sequence
     int * seq = ran_seq(size);
