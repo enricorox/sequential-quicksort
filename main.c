@@ -14,6 +14,8 @@ int main(int argc, char **argv) {
     }
     int size = atoi(argv[1]);
 
+    printf("Memory needed: %.3f MB\n", size*sizeof(int)/1000000.0);
+
     // set a random seed
     int seed = 123 * size;
     srand(seed);
@@ -25,6 +27,7 @@ int main(int argc, char **argv) {
     printf("Sequence:\n");
     print_seq(seq, size);
 #endif
+
     double t_start = MPI_Wtime();
     // sort the sequence
     quick_sort(seq, 0, size - 1);
@@ -34,7 +37,8 @@ int main(int argc, char **argv) {
     printf("Ordered sequence:\n");
     print_seq(seq, size);
 #endif
-    printf("T(SequentialQuickSort) = %f\n", t_stop - t_start);
+
+    printf("T(SequentialQuickSort, %d) = %f seconds\n", size, t_stop - t_start);
     free(seq);
     return EXIT_SUCCESS;
 }

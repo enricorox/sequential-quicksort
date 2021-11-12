@@ -10,7 +10,7 @@
  * Split arr into two partition such that
  * 1. lower end is less than pivot
  * 2. higher end is greater than pivot
- * @param arr the integer array to be splitted
+ * @param arr the integer array to be split
  * @param start first element index
  * @param stop last element index
  * @return pivot position

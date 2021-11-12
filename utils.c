@@ -17,10 +17,7 @@ int * ran_seq(int size){
 
     for(int i = 0; i < size; i++){
         int k = rand() % size;
-        // swap k <--> i
-        int t = seq[i];
-        seq[i] = seq[k];
-        seq[k] = t;
+        swap(&seq[i], &seq[k]);
     }
     return seq;
 }
