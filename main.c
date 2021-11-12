@@ -1,24 +1,28 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <mpi.h>
+#include <time.h>
 #include "utils.h"
 #include "quicksort.h"
-#include <mpi/mpi.h>
 
-#define DEBUG
+#define nDEBUG
 
 int main(int argc, char **argv) {
     // parse arguments
     if(argc < 2){
-        printf("Usage: %s <size>\n", argv[0]);
+        printf("Usage: %s <size> <seed>\n", argv[0]);
         return EXIT_FAILURE;
     }
     int size = atoi(argv[1]);
-
-    printf("Memory needed: %.3f MB\n", size*sizeof(int)/1000000.0);
+    int seed = time(NULL);
 
     // set a random seed
-    int seed = 123 * size;
+    if(argc == 3) seed = atoi(argv[2]);
     srand(seed);
+
+    printf("Going to generate a sequence of size %d\n", size);
+    printf("Memory needed: %.3f MB\n", size*sizeof(int)/1000000.0);
+    printf("seed = %d\n", seed);
 
     // generate the sequence
     int * seq = ran_seq(size);
