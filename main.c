@@ -11,6 +11,7 @@ int main(int argc, char **argv) {
     // parse arguments
     if(argc < 2){
         printf("Usage: %s <size> <seed>\n", argv[0]);
+        printf("Failure: <size> needed!\n");
         return EXIT_FAILURE;
     }
     int size = atoi(argv[1]);
@@ -26,6 +27,10 @@ int main(int argc, char **argv) {
 
     // generate the sequence
     int * seq = ran_seq(size);
+    if(seq == NULL){
+        printf("Failure: Cannot allocate memory!\n");
+        return EXIT_FAILURE;
+    }
 
 #ifdef DEBUG
     printf("Sequence:\n");
