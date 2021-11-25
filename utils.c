@@ -8,11 +8,18 @@
 
 /**
  * Generate a shuffled sequence of consecutive integers
+ * Exit if size is too big
+ *
  * @param size sequence size
- * @return
+ * @return a random sequence
  */
 int * ran_seq(int size){
     int *seq = calloc(size, sizeof(int));
+
+    if(seq == NULL){
+        printf("Failure: Cannot allocate memory!\n");
+        exit(EXIT_FAILURE);
+    }
     for(int i = 0; i < size; i++) seq[i] = i;
 
     for(int i = 0; i < size; i++){
@@ -24,6 +31,7 @@ int * ran_seq(int size){
 
 /**
  * Printing utility
+ *
  * @param seq integer array
  * @param size array size
  */
